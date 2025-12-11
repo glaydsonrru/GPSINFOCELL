@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GPS InfoCell - Assistência Técnica</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            color: #222;
+        }
+        header {
+            background: linear-gradient(135deg, #000000, #1b1b1b);
+            padding: 40px 20px;
+            text-align: center;
+            color: #fff;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+        }
+        header h1 {
+            font-size: 42px;
+            margin: 0;
+            letter-spacing: 2px;
+            font-weight: bold;
+        }
+        header p {
+            margin-top: 10px;
+            font-size: 18px;
+            opacity: 0.9;
+        }
+        section {
+            padding: 40px 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
+        h2 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 25px;
+        }
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        .card {
+            background: #fff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: 0.3s;
+        }
+        .card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+        }
+        .why {
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .testimonial {
+            background: #e8e8e8;
+            padding: 20px;
+            border-left: 5px solid #000;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        footer {
+            background: #000;
+            color: #fff;
+            text-align: center;
+            padding: 30px 10px;
+            margin-top: 40px;
+        }
+        .whatsapp {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: #25d366;
+            color: white;
+            padding: 15px 22px;
+            font-size: 18px;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>GPS InfoCell</h1>
+        <p>Assistência Técnica Especializada em Celulares • Qualidade • Rapidez • Confiança</p>
+    </header>
+
+    <section>
+        <h2>Serviços Profissionais</h2>
+        <div class="cards">
+            <div class="card"><h3>🔧 Troca de Tela</h3><p>Reparo rápido com peças premium e garantia.</p></div>
+            <div class="card"><h3>🔋 Troca de Bateria</h3><p>Diagnóstico completo e substituição segura.</p></div>
+            <div class="card"><h3>💧 Recuperação de Aparelho Molhado</h3><p>Tratamento avançado para evitar danos.</p></div>
+            <div class="card"><h3>📱 Atualização & Software</h3><p>Correção de travamentos, sistemas e otimizações.</p></div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Por que escolher a GPS InfoCell?</h2>
+        <div class="why">
+            <ul>
+                <li>✔ Atendimento rápido e profissional</li>
+                <li>✔ Peças de alta qualidade com garantia</li>
+                <li>✔ Suporte técnico especializado</li>
+                <li>✔ Valores justos e total transparência</li>
+                <li>✔ Serviço confiável com mais de 20 anos de experiência em TI</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>Depoimentos</h2>
+        <div class="testimonial">“Serviço rápido, preço justo e atendimento excelente!”</div>
+        <div class="testimonial">“Meu aparelho voltou perfeito. Super recomendo!”</div>
+        <div class="testimonial">“Melhor assistência que já fui em Fortaleza.”</div>
+    </section>
+
+    <section>
+        <h2>Contato</h2>
+        <div class="why" style="text-align:center;">
+            <p><strong>📞 Telefone / WhatsApp:</strong> (85) 99904-5102</p>
+            <p><strong>📍 Localização:</strong> Fortaleza - CE</p>
+            <p><strong>🕘 Atendimento:</strong> Segunda a Sábado</p>
+        </div>
+    </section>
+
+    <footer>
+        GPS InfoCell © 2025 — Assistência Técnica Profissional
+    </footer>
+
+    <a href="https://wa.me/5585999045102" class="whatsapp">WhatsApp</a>
+</body>
+</html>
