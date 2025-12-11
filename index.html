@@ -3,79 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GPS InfoCell – Assistência Técnica</title>
+    <title>GPS InfoCell – Sistema Completo</title>
     <style>
-        body { margin:0; font-family:Arial; background:#f4f4f4; color:#222; }
-        header { background:#0a0f24; padding:20px; text-align:center; color:white; }
-        header img { width:120px; }
+        :root {
+            --bg:#f4f4f4;
+            --text:#222;
+            --card:#fff;
+            --primary:#0e1a40;
+            --header:#0a0f24;
+        }
+        [data-theme="dark"] {
+            --bg:#0d0d0d;
+            --text:#e7e7e7;
+            --card:#1b1b1b;
+            --primary:#00aaff;
+            --header:#000000;
+        }
+        body { margin:0; font-family:Arial; background:var(--bg); color:var(--text); }
+        header { background:var(--header); padding:20px; text-align:center; color:white; }
         nav { display:flex; justify-content:center; gap:25px; padding:10px; background:#11172f; }
         nav a { color:white; text-decoration:none; font-weight:bold; }
-        .hero { padding:80px 20px; text-align:center; background:linear-gradient(#0a0f24,#0e1a40); color:white; }
-        .hero h1 { font-size:38px; margin:0; }
-        .hero p { font-size:20px; margin-top:10px; }
+        .toggle-dark { position:absolute; right:20px; top:20px; background:#444; color:white; padding:8px 15px; border-radius:8px; cursor:pointer; }
+        .hero { padding:80px 20px; text-align:center; background:linear-gradient(var(--header),var(--primary)); color:white; }
         .section { padding:40px 20px; max-width:1100px; margin:auto; }
         h2 { text-align:center; font-size:30px; margin-bottom:20px; }
-        .servicos-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:20px; }
-        .card { background:white; padding:20px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1); }
-        .galeria { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:15px; }
-        .galeria img { width:100%; border-radius:8px; }
-        .contato-form { display:flex; flex-direction:column; gap:10px; max-width:500px; margin:auto; }
-        input, textarea { padding:12px; border-radius:8px; border:1px solid #bbb; }
-        button { padding:15px; background:#0e1a40; color:white; border:none; border-radius:8px; font-size:16px; cursor:pointer; }
-        footer { background:#0a0f24; padding:20px; text-align:center; color:white; margin-top:40px; }
-        #whatsapp-btn { position:fixed; right:20px; bottom:20px; background:#25d366; color:white; padding:15px 20px; border-radius:50px; font-weight:bold; text-decoration:none; box-shadow:0 4px 10px rgba(0,0,0,0.3); }
+        .card { background:var(--card); padding:20px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.15); margin-bottom:20px; }
+        .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px; }
+        input, textarea, select { width:100%; padding:12px; border-radius:8px; border:1px solid #bbb; background:var(--card); color:var(--text); }
+        button { padding:15px; background:var(--primary); color:white; border:none; border-radius:8px; font-size:16px; cursor:pointer; width:100%; }
+        footer { background:var(--header); padding:20px; text-align:center; color:white; margin-top:40px; }
+        #whatsapp-btn { position:fixed; right:20px; bottom:20px; background:#25d366; color:white; padding:15px 20px; border-radius:50px; text-decoration:none; font-weight:bold; }
     </style>
 </head>
-<body>
+<body data-theme="light">
 <header>
-    <img src="logo.png" alt="Logo GPS InfoCell">
-    <h1>GPS InfoCell – Assistência Técnica</h1>
+    <div class="toggle-dark" onclick="toggleTheme()">Modo Claro/Escuro</div>
+    <h1>GPS InfoCell – Sistema Completo</h1>
 </header>
 <nav>
     <a href="#servicos">Serviços</a>
-    <a href="#galeria">Galeria</a>
-    <a href="#contato">Contato</a>
-    <a href="#localizacao">Localização</a>
+    <a href="#agenda">Agendamento</a>
+    <a href="#orcamento">Orçamento</a>
+    <a href="#avaliacoes">Avaliações</a>
+    <a href="#login">Login</a>
+    <a href="#painel">Painel</a>
 </nav>
 <section class="hero">
-    <h1>Manutenção Profissional de Computadores e Celulares</h1>
-    <p>Atendimento rápido, confiável e especializado. Ligue agora: <strong>(85) 99904-5102</strong></p>
+    <h1>Assistência Técnica Profissional</h1>
+    <p>Computadores • Celulares • TI – Ligue: (85) 99904-5102</p>
 </section>
-<section id="servicos" class="section">
-    <h2>Serviços Profissionais</h2>
-    <div class="servicos-grid">
-        <div class="card">🔧 Manutenção de Computadores</div>
-        <div class="card">📱 Troca de Tela e Reparo de Celulares</div>
-        <div class="card">💾 Recuperação de Dados</div>
-        <div class="card">🛡️ Remoção de Vírus e Otimização</div>
-        <div class="card">⚙️ Formatação Completa</div>
-        <div class="card">🔌 Troca de Componentes</div>
+<section id="agenda" class="section">
+    <h2>📅 Agendamento de Serviços</h2>
+    <div class="card">
+        <input type="text" placeholder="Nome">
+        <input type="text" placeholder="Telefone">
+        <select>
+            <option>Troca de Tela</option>
+            <option>Formatação</option>
+            <option>Troca de Bateria</option>
+            <option>Reparo Geral</option>
+        </select>
+        <input type="date">
+        <button>Agendar Agora</button>
     </div>
 </section>
-<section id="galeria" class="section">
-    <h2>Galeria de Serviços</h2>
-    <div class="galeria">
-        <img src="galeria1.jpg">
-        <img src="galeria2.jpg">
-        <img src="galeria3.jpg">
+<section id="orcamento" class="section">
+    <h2>💰 Orçamento Automático</h2>
+    <div class="card">
+        <select>
+            <option>Selecione o modelo</option>
+            <option>iPhone 11</option>
+            <option>Samsung A32</option>
+            <option>Xiaomi Redmi Note</option>
+        </select>
+        <select>
+            <option>Tipo de problema</option>
+            <option>Tela quebrada</option>
+            <option>Bateria ruim</option>
+            <option>Software travando</option>
+        </select>
+        <button>Gerar Orçamento</button>
     </div>
 </section>
-<section id="contato" class="section">
-    <h2>Fale Conosco</h2>
-    <form class="contato-form">
-        <input type="text" placeholder="Seu nome">
-        <input type="email" placeholder="Seu e-mail">
-        <textarea rows="5" placeholder="Descreva seu problema"></textarea>
-        <button>Enviar Mensagem</button>
-    </form>
+<section id="avaliacoes" class="section">
+    <h2>⭐ Avaliações dos Clientes</h2>
+    <div class="card">“Ótimo atendimento! 5 estrelas.”</div>
+    <div class="card">“Serviço rápido e confiável.”</div>
+    <div class="card">“Recomendo demais!”</div>
 </section>
-<section id="localizacao" class="section">
-    <h2>Localização</h2>
-    <iframe style="width:100%; height:350px; border-radius:12px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15923.1!2d-38.54!3d-3.73"></iframe>
+<section id="login" class="section">
+    <h2>🔐 Área do Cliente</h2>
+    <div class="card">
+        <input type="email" placeholder="E-mail">
+        <input type="password" placeholder="Senha">
+        <button>Entrar</button>
+    </div>
 </section>
-<footer>
-    © 2025 GPS InfoCell • Fortaleza – CE • Contato: (85) 99904-5102
-</footer>
+<section id="painel" class="section">
+    <h2>🔥 Painel Administrativo</h2>
+    <div class="grid">
+        <div class="card">📅 Gerenciar Agendamentos</div>
+        <div class="card">🛠️ Serviços em Andamento</div>
+        <div class="card">📦 Controle de Peças</div>
+        <div class="card">👥 Controle de Clientes</div>
+        <div class="card">💬 Chat Online</div>
+        <div class="card">💰 Relatórios de Orçamentos</div>
+    </div>
+</section>
+<section id="chat" class="section">
+    <h2>💬 Chat Online</h2>
+    <div class="card">Sistema de chat em tempo real pronto para integração.</div>
+</section>
+<footer>© 2025 GPS InfoCell • Fortaleza – CE</footer>
 <a id="whatsapp-btn" href="https://wa.me/5585999045102">WhatsApp</a>
+<script>
+function toggleTheme(){
+ let body=document.body;
+ body.dataset.theme=body.dataset.theme=="light"?"dark":"light";
+}
+</script>
 </body>
 </html>
