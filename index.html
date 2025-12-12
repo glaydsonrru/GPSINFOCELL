@@ -1,1 +1,325 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GPS InfoCELL – Sistema Completo (Tema Claro/Escuro)</title>
+  <meta name="description" content="GPS InfoCELL — Serviços de manutenção, reparo e otimização de computadores e celulares. Orçamento rápido e suporte técnico especializado." />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg-light: #f4f4f4;
+      --text-light:#222;
+      --card-light:#ffffff;
+      --primary-light:#0e1a40;
+
+      --bg-dark:#0f1112;
+      --panel-dark:#1b1d1e;
+      --neon:#1be21b;
+      --glass: rgba(255,255,255,0.03);
+      --accent-shadow: 0 8px 28px rgba(27,226,27,0.08);
+      --radius:14px;
+
+      --max-width:1100px;
+      font-family: 'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+
+    /* Global reset */
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:var(--bg-dark);color:#efefef}
+    .wrap{max-width:var(--max-width);margin:28px auto;padding:24px}
+
+    /* Header (do primeiro) */
+    header{display:flex;align-items:center;justify-content:space-between;gap:18px}
+    .brand{display:flex;align-items:center;gap:14px}
+    .brand img{width:78px;height:78px;object-fit:contain;border-radius:50%;box-shadow:0 6px 18px rgba(27,226,27,0.08), inset 0 -6px 18px rgba(0,0,0,0.4)}
+    .brand h1{margin:0;font-size:20px;letter-spacing:1px}
+    .brand p{margin:0;font-size:12px;color:#cfd3d3}
+
+    /* Nav centralizada (do segundo) */
+    nav{display:flex;gap:22px;align-items:center;justify-content:center;padding:12px 0}
+    nav a{color:var(--neon);text-decoration:none;font-weight:700;padding:8px 12px;border-radius:8px}
+    nav a:hover{opacity:0.9;filter:brightness(1.05)}
+
+    /* Buttons */
+    .btn{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:10px 14px;border-radius:10px;color:var(--neon);font-weight:700;backdrop-filter: blur(4px)}
+    .cta{background:linear-gradient(90deg,var(--neon), #00e64f);color:#08110a;padding:11px 16px;border-radius:10px;border:none;font-weight:800;box-shadow: var(--accent-shadow)}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;margin-top:18px;align-items:start}
+    .hero-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:28px;border-radius:var(--radius);box-shadow:0 14px 40px rgba(0,0,0,0.6)}
+    .kicker{color:var(--neon);font-weight:800;font-size:13px;padding:6px 10px;border-radius:8px;display:inline-block}
+    h2{margin:12px 0 8px;font-size:34px;line-height:1.03}
+    p.lead{color:#cfd3c3;margin:0 0 18px}
+
+    .features{display:flex;gap:12px;margin-top:18px}
+    .feature{flex:1;background:var(--panel-dark);padding:12px;border-radius:10px;text-align:center}
+    .feature h4{margin:6px 0 4px}
+    .feature p{margin:0;font-size:13px;color:#bfc3c3}
+
+    /* Form */
+    .card-side{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:20px;border-radius:12px}
+    label{display:block;font-size:13px;margin-bottom:6px;color:#cbd1cf}
+    input,textarea,select{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:inherit}
+    .row{display:flex;gap:8px}
+    .small{width:48%}
+    .submit{margin-top:12px;padding:12px;border-radius:10px;border:none;background:linear-gradient(90deg,var(--neon),#00e64f);font-weight:800}
+
+    /* Services grid */
+    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:28px}
+    .service-item{background:var(--panel-dark);padding:18px;border-radius:12px;min-height:110px}
+    .service-item h3{margin:0 0 8px}
+    .service-item p{margin:0;color:#bfc3c3}
+
+    /* gallery */
+    .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:18px}
+    .thumb{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);height:88px;border-radius:10px}
+
+    /* footer */
+    footer{margin-top:28px;padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));display:flex;justify-content:space-between;align-items:center}
+
+    /* responsive */
+    @media(max-width:980px){.hero{grid-template-columns:1fr}.services{grid-template-columns:repeat(2,1fr)}.gallery{grid-template-columns:repeat(3,1fr)}.brand img{width:64px;height:64px}}
+    @media(max-width:640px){.services{grid-template-columns:1fr}.gallery{grid-template-columns:repeat(2,1fr)}header{flex-direction:column;align-items:flex-start}nav{flex-wrap:wrap}}
+
+    /* neon accents */
+    .neon-ring{position:fixed;right:14px;bottom:14px;background:linear-gradient(180deg, rgba(27,226,27,0.14), rgba(0,0,0,0.0));padding:8px;border-radius:999px}
+    .ghost{opacity:0.06;font-size:110px;font-weight:900;position:fixed;left:-8px;top:20px;transform:rotate(-8deg);pointer-events:none}
+
+    /* ---- Light theme overrides (paleta do segundo) ---- */
+    body[data-theme="light"]{background:var(--bg-light);color:var(--text-light)}
+    body[data-theme="light"] .brand p{color:#666}
+    body[data-theme="light"] .hero-card, body[data-theme="light"] .card-side, body[data-theme="light"] .service-item, body[data-theme="light"] footer{background:var(--card-light);color:var(--text-light);box-shadow:0 6px 20px rgba(16,24,40,0.06)}
+    body[data-theme="light"] nav a{color:var(--primary-light)}
+    body[data-theme="light"] .brand img{box-shadow:0 6px 18px rgba(0,0,0,0.06)}
+
+    /* ---- Dark theme overrides (padrão) ---- */
+    body[data-theme="dark"]{background:linear-gradient(180deg,#060606 0%, #0b0b0b 60%);color:#efefef}
+    body[data-theme="dark"] .hero-card, body[data-theme="dark"] .card-side, body[data-theme="dark"] .service-item, body[data-theme="dark"] footer{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));}
+
+    /* small utilities */
+    .center{max-width:var(--max-width);margin:0 auto}
+    .muted{color:#bfc3c3}
+    .grid-responsive{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+
+    /* WhatsApp button */
+    #whatsapp-btn{position:fixed;right:20px;bottom:20px;background:#25d366;color:white;padding:12px 18px;border-radius:999px;text-decoration:none;font-weight:800;box-shadow:0 8px 28px rgba(37,211,102,0.12)}
+
+    /* small header right controls */
+    .controls{display:flex;gap:10px;align-items:center}
+    .theme-toggle{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px 10px;border-radius:8px;color:var(--neon);cursor:pointer}
+
+  </style>
+</head>
+<body data-theme="dark">
+  <div class="wrap">
+    <header>
+        <img class="logo" src="logo.png" alt="GPS InfoCell" style="height:60px;">
+      <div class="brand">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABAAAAAQACAIAAADwf7zUAAD+vmNhQlgAAP6+anVtYgAAAB5qdW1kYzJwYQARABCAAACqADibcQNj" alt="GPS InfoCell Logo">
+        <div>
+          <h1>GPS InfoCELL</h1>
+          <p>Manutenção e reparo de computadores & celulares</p>
+        </div>
+      </div>
+
+      <div class="controls">
+        <button class="theme-toggle" id="themeBtn" title="Alternar tema">Tema</button>
+        <a class="cta" href="#contato">Solicitar Orçamento</a>
+      </div>
+    </header>
+
+    <!-- Nav centralizada (inspirada no segundo) -->
+    <nav aria-label="Menu principal">
+      <a href="#servicos">Serviços</a>
+      <a href="#agenda">Agendamento</a>
+      <a href="#orcamento">Orçamento</a>
+      <a href="#avaliacoes">Avaliações</a>
+      <a href="#login">Login</a>
+      <a href="#painel">Painel</a>
+    </nav>
+
+    <section class="hero center">
+      <div class="hero-card">
+        <span class="kicker">RÁPIDO | CONFIÁVEL</span>
+        <h2>Reparo especializado em computadores e celulares — diagnóstico em até 24h</h2>
+        <p class="lead">Equipamentos com problemas de hardware, software, bateria, tela, lentidão, vírus ou backup? Nós trazemos a solução com garantia e peças originais.</p>
+
+        <div class="features">
+          <div class="feature">
+            <strong>Diagnóstico Rápido</strong>
+            <p>Avaliação detalhada e orçamento sem custo.</p>
+          </div>
+          <div class="feature">
+            <div style="font-weight:700;color:var(--neon)">Garantia</div>
+            <p>Garantia sob peças e serviços realizados.</p>
+          </div>
+          <div class="feature">
+            <div style="font-weight:700;color:var(--neon)">Atendimento</div>
+            <p>Suporte presencial e remoto.</p>
+          </div>
+        </div>
+
+        <div style="margin-top:18px;display:flex;gap:10px">
+          <a class="cta" href="#contato">Solicitar Orçamento</a>
+          <a class="btn" href="#servicos">Ver Serviços</a>
+        </div>
+
+        <div class="ghost">GPS</div>
+      </div>
+
+      <aside class="card-side">
+        <h3 style="margin-top:0">Peça seu orçamento</h3>
+        <form id="leadForm">
+          <label>Nome</label>
+          <input type="text" id="nome" placeholder="Seu nome" required />
+          <label>Telefone / WhatsApp</label>
+          <input type="tel" id="phone" placeholder="(00) 9 9999-9999" required />
+          <div class="row">
+            <div class="small">
+              <label>Tipo</label>
+              <select id="tipo">
+                <option>Celular</option>
+                <option>Notebook</option>
+                <option>Desktop</option>
+                <option>Tablet</option>
+              </select>
+            </div>
+            <div class="small">
+              <label>Prioridade</label>
+              <select id="prio">
+                <option>Alta</option>
+                <option>Média</option>
+                <option>Baixa</option>
+              </select>
+            </div>
+          </div>
+          <label>Descrição do problema</label>
+          <textarea id="desc" rows="4" placeholder="Descreva o que está acontecendo..."></textarea>
+          <button class="submit" type="submit">Enviar pedido</button>
+        </form>
+
+        <hr style="margin:14px 0;border:none;border-top:1px solid rgba(255,255,255,0.04)" />
+        <div>
+          <div style="font-size:13px;color:#bfc3c3">Atendimento</div>
+          <div style="font-weight:800;margin-top:6px">Seg–Sex • 09:00–18:00</div>
+          <a id="whatsLinkSide" href="https://wa.me/5585999045102" style="display:inline-block;margin-top:10px;text-decoration:none" class="cta">WhatsApp</a>
+        </div>
+      </aside>
+    </section>
+
+    <!-- Services section (grid responsiva) -->
+    <section id="servicos" class="services">
+      <div class="service-item">
+        <h3>Manutenção de Hardware</h3>
+        <p>Troca de tela, teclado, fonte, placa-mãe e limpeza completa.</p>
+      </div>
+      <div class="service-item">
+        <h3>Reparo de Bateria</h3>
+        <p>Troca de baterias com garantia e calibração de energia.</p>
+      </div>
+      <div class="service-item">
+        <h3>Recuperação de Dados</h3>
+        <p>Recuperação de arquivos, clonagem e backup seguro.</p>
+      </div>
+      <div class="service-item">
+        <h3>Troca de Tela</h3>
+        <p>Peças originais e instalação especializada.</p>
+      </div>
+      <div class="service-item">
+        <h3>Atualização e Otimização</h3>
+        <p>Instalação de SO, remoção de vírus e otimização de performance.</p>
+      </div>
+      <div class="service-item">
+        <h3>Assistência Remota</h3>
+        <p>Suporte rápido para configuração e solução de problemas.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 style="text-align:center">Galeria</h2>
+      <div class="gallery">
+        <div class="thumb"></div>
+        <div class="thumb"></div>
+        <div class="thumb"></div>
+        <div class="thumb"></div>
+      </div>
+    </section>
+
+    <footer id="contato">
+      <div>
+        <strong>GPS InfoCELL</strong>
+        <div style="color:#bfc3c3;font-size:13px">Rua Exemplo, 123 — Fortaleza, CE</div>
+        <div style="margin-top:8px">E-mail: contato@gpsinfocell.com</div>
+      </div>
+      <div style="text-align:right">
+        <div style="font-weight:800">Fale conosco</div>
+        <div style="margin-top:6px">WhatsApp: <a href="https://wa.me/5585999045102" style="color:var(--neon);text-decoration:none">(85) 9 9904-5102</a></div>
+        <div style="margin-top:8px;color:#bfc3c3;font-size:12px">© <span id="year"></span> GPS InfoCELL</div>
+      </div>
+    </footer>
+
+    <a id="whatsapp-btn" href="https://wa.me/5585999045102" aria-label="WhatsApp">WhatsApp</a>
+
+  </div>
+
+  <script>
+    // set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // handle form submit -> opens whatsapp with prefilled message
+    document.getElementById('leadForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      const nome = document.getElementById('nome').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const tipo = document.getElementById('tipo').value;
+      const prio = document.getElementById('prio').value;
+      const desc = document.getElementById('desc').value.trim();
+
+      if(!nome || !phone){
+        alert('Por favor preencha nome e telefone.');
+        return;
+      }
+
+      const text = encodeURIComponent(`Olá, meu nome é ${nome}. Tenho um ${tipo} (Prioridade: ${prio}). Problema: ${desc}. Contato: ${phone}`);
+      const url = `https://wa.me/5585999045102?text=${text}`;
+      window.open(url, '_blank');
+    });
+
+    // small interactions
+    (function addGlow(){
+      const els = document.querySelectorAll('.feature, .service-item, .thumb');
+      els.forEach((el,i)=>{
+        el.style.transition='transform .28s ease, box-shadow .28s ease';
+        el.addEventListener('mouseenter',()=>{el.style.transform='translateY(-6px)';el.style.boxShadow='0 18px 40px rgba(0,0,0,0.6)'});
+        el.addEventListener('mouseleave',()=>{el.style.transform='none';el.style.boxShadow='none'});
+      });
+    })();
+
+    // theme toggle (default: dark as requested)
+    const body = document.body;
+    const themeBtn = document.getElementById('themeBtn');
+    // initialize (dark)
+    body.dataset.theme = 'dark';
+
+    function setLightTheme(){
+      body.dataset.theme = 'light';
+      // tweak CSS custom properties for light mode
+      document.documentElement.style.setProperty('--neon','#0e5ecf');
+    }
+    function setDarkTheme(){
+      body.dataset.theme = 'dark';
+      document.documentElement.style.setProperty('--neon','#1be21b');
+    }
+
+    themeBtn.addEventListener('click', ()=>{
+      if(body.dataset.theme === 'dark') setLightTheme(); else setDarkTheme();
+    });
+
+    // accessibility: keyboard shortcut T toggles theme
+    document.addEventListener('keydown', (e)=>{if(e.key.toLowerCase()==='t') themeBtn.click();});
+
+  </script>
+</body>
+</html>
 
