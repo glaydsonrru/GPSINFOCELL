@@ -1,43 +1,277 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<title>GPS InfoCELL - Manutenção de Computadores & Celulares</title>
-<style>
-body { font-family: Arial, sans-serif; background: #f2f2f2; margin: 0; padding: 0; text-align: center; }
-header { background: #0a0a0a; padding: 20px; color: white; }
-section { padding: 20px; }
-img { max-width: 280px; margin-top: 20px; }
-.card { background: white; width: 90%; max-width: 500px; margin: 20px auto; padding: 20px; border-radius: 10px; box-shadow: 0 0 12px rgba(0,0,0,0.2); }
-button { padding: 12px 20px; background: #0a0a0a; color: white; border: none; border-radius: 6px; margin-top: 20px; cursor: pointer; }
-button:hover { background: #333; }
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GPS InfoCELL - Manutenção de Computadores e Celulares</title>
+  <meta name="description" content="GPS InfoCELL — Serviços de manutenção, reparo e otimização de computadores e celulares. Orçamento rápido e suporte técnico especializado." />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f1112;
+      --panel:#1b1d1e;
+      --neon:#1be21b; /* verde neon */
+      --glass: rgba(255,255,255,0.03);
+      --accent-shadow: 0 8px 28px rgba(27,226,27,0.08);
+      --radius:14px;
+      font-family: 'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,#060606 0%, #0b0b0b 60%);color:#efefef}
+    .container{max-width:1100px;margin:36px auto;padding:28px}
+
+    /* header */
+    header{display:flex;align-items:center;justify-content:space-between;gap:18px}
+    .brand{display:flex;align-items:center;gap:14px}
+    .brand img{width:78px;height:78px;object-fit:contain;border-radius:50%;box-shadow:0 6px 18px rgba(27,226,27,0.08), inset 0 -6px 18px rgba(0,0,0,0.4)}
+    .brand h1{margin:0;font-size:20px;letter-spacing:1px}
+    .brand p{margin:0;font-size:12px;color:#cfd3d3}
+
+    nav{display:flex;gap:12px;align-items:center}
+    .btn{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:10px 14px;border-radius:10px;color:var(--neon);font-weight:600;backdrop-filter: blur(4px)}
+    .cta{background:linear-gradient(90deg,var(--neon), #00e64f);color:#08110a;padding:11px 16px;border-radius:10px;border:none;font-weight:800;box-shadow: var(--accent-shadow)}
+
+    /* hero */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;margin-top:28px;align-items:center}
+    .hero-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:28px;border-radius:var(--radius);box-shadow:0 14px 40px rgba(0,0,0,0.6)}
+    .kicker{color:var(--neon);font-weight:800;font-size:13px;padding:6px 10px;border-radius:8px;display:inline-block}
+    h2{margin:12px 0 8px;font-size:34px;line-height:1.03}
+    p.lead{color:#cfd3d3;margin:0 0 18px}
+
+    .features{display:flex;gap:12px;margin-top:18px}
+    .feature{flex:1;background:var(--panel);padding:12px;border-radius:10px;text-align:center}
+    .feature h4{margin:6px 0 4px}
+    .feature p{margin:0;font-size:13px;color:#bfc3c3}
+
+    /* form */
+    .card-side{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:20px;border-radius:12px}
+    label{display:block;font-size:13px;margin-bottom:6px;color:#cbd1cf}
+    input,textarea,select{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:inherit}
+    .row{display:flex;gap:8px}
+    .small{width:48%}
+    .submit{margin-top:12px;padding:12px;border-radius:10px;border:none;background:linear-gradient(90deg,var(--neon),#00e64f);font-weight:800}
+
+    /* services */
+    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:28px}
+    .service-item{background:var(--panel);padding:18px;border-radius:12px;min-height:110px}
+    .service-item h3{margin:0 0 8px}
+    .service-item p{margin:0;color:#bfc3c3}
+
+    /* gallery */
+    .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:18px}
+    .thumb{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);height:88px;border-radius:10px}
+
+    /* footer */
+    footer{margin-top:28px;padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));display:flex;justify-content:space-between;align-items:center}
+
+    /* responsiveness */
+    @media(max-width:980px){.hero{grid-template-columns:1fr}.services{grid-template-columns:repeat(2,1fr)}.gallery{grid-template-columns:repeat(3,1fr)}.brand img{width:64px;height:64px}}
+    @media(max-width:640px){.services{grid-template-columns:1fr}.gallery{grid-template-columns:repeat(2,1fr)}header{flex-direction:column;align-items:flex-start}}
+
+    /* small neon accents */
+    .neon-ring{position:fixed;right:14px;bottom:14px;background:linear-gradient(180deg, rgba(27,226,27,0.14), rgba(0,0,0,0.0));padding:8px;border-radius:999px}
+    .ghost{opacity:0.06;font-size:110px;font-weight:900;position:fixed;left:-8px;top:20px;transform:rotate(-8deg);pointer-events:none}
+  </style>
 </head>
 <body>
-<header>
-<h1>GPS InfoCELL</h1>
-<p>Manutenção de Computadores & Celulares</p>
-</header>
-
-<section>
-<img src="logo.png" alt="Logo GPS InfoCELL">
-
-<div class="card">
-<h2>Serviços</h2>
-<p>✔ Formatação e otimização de computadores</p>
-<p>✔ Troca de telas e baterias</p>
-<p>✔ Remoção de vírus</p>
-<p>✔ Reparo em placas</p>
-<p>✔ Limpeza preventiva</p>
-</div>
-
-<div class="card">
-<h2>Contato</h2>
-<p>📞 WhatsApp: (xx) xxxxx-xxxx</p>
-<p>📍 Fortaleza - CE</p>
-<button onclick="window.location.href='https://wa.me/55XXXXXXXXXX'">Chamar no WhatsApp</button>
-</div>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <!-- Substitua src pelo caminho do seu logo 3D -->
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABAAAAAQACAIAAADwf7zUAAD+vmNhQlgAAP6+anVtYgAAAB5qdW1kYzJwYQARABCAAACqADibcQNj"+ 
+""+"" alt="GPS InfoCell Logo" style="max-width:300px;">
+        <div>
+          <h1>GPS InfoCELL</h1>
+          <p>Manutenção e reparo de computadores & celulares</p>
+        </div>
+      </div>
+      <nav>
+        <button class="btn">Serviços</button>
+        <button class="btn">Preços</button>
+        <a href="#contato" class="cta">Solicitar Orçamento</a>
+      </nav>
+    </header>
+<section class="hero-extra">
+  <h2 class="subtitle">Assistência Técnica Especializada em Computadores e Celulares</h2>
+  <p class="contact">📞 Contato direto: <strong>(85) 99904-5102</strong></p>
 </section>
 
+    <main class="hero">
+      <section class="hero-card">
+        <span class="kicker">RÁPIDO | CONFIÁVEL</span>
+        <h2>Reparo especializado em computadores e celulares — <br> diagnóstico em até 24h</h2>
+        <p class="lead">Equipamentos com problemas de hardware, software, bateria, tela, lentidão, vírus ou backup? Nós trazemos a solução com garantia e peças originais.</p>
+
+        <div class="features">
+          <div class="feature">
+            <strong>Diagnóstico Rápido</strong>
+            <p>Avaliação detalhada e orçamento sem custo.</p>
+          </div>
+          <div class="feature">
+            <div style="font-weight:700;color:var(--neon)">Garantia</div>
+            <p>Garantia sob peças e serviços realizados.</p>
+          </div>
+          <div class="feature">
+            <div style="font-weight:700;color:var(--neon)">Atendimento</div>
+            <p>Suporte presencial e remoto.</p>
+          </div>
+        </div>
+
+        <div style="margin-top:18px;display:flex;gap:10px">
+          <a class="cta" href="#contato">Solicitar Orçamento</a>
+          <a class="btn" href="#servicos">Ver Serviços</a>
+        </div>
+
+        <div class="ghost">GPS</div>
+      </section>
+
+      <aside class="card-side">
+        <h3 style="margin-top:0">Peça seu orçamento</h3>
+        <form id="leadForm" onsubmit="return handleSubmit(event)">
+          <label>Nome</label>
+          <input type="text" id="nome" placeholder="Seu nome" required />
+          <label>Telefone / WhatsApp</label>
+          <input type="tel" id="phone" placeholder="(00) 9 9999-9999" required />
+          <div class="row">
+            <div class="small">
+              <label>Tipo</label>
+              <select id="tipo">
+                <option>Celular</option>
+                <option>Notebook</option>
+                <option>Desktop</option>
+                <option>Tablet</option>
+              </select>
+            </div>
+            <div class="small">
+              <label>Prioridade</label>
+              <select id="prio">
+                <option>Alta</option>
+                <option>Média</option>
+                <option>Baixa</option>
+              </select>
+            </div>
+          </div>
+          <label>Descrição do problema</label>
+          <textarea id="desc" rows="4" placeholder="Descreva o que está acontecendo..."></textarea>
+          <button class="submit" type="submit">Enviar pedido</button>
+        </form>
+
+        <hr style="margin:14px 0;border:none;border-top:1px solid rgba(255,255,255,0.04)" />
+        <div>
+          <div style="font-size:13px;color:#bfc3c3">Atendimento</div>
+          <div style="font-weight:800;margin-top:6px">Seg–Sex • 09:00–18:00</div>
+          <a href="https://wa.me/5585XXXXXXXX" style="display:inline-block;margin-top:10px;text-decoration:none" class="cta">WhatsApp</a>
+        </div>
+      </aside>
+    
+<section id="servicos" class="servicos">
+<h2>Serviços Profissionais</h2>
+<ul>
+<li>🔧 Manutenção de Computadores</li>
+<li>📱 Reparos em Celulares</li>
+<li>💾 Recuperação de Dados</li>
+<li>🛡️ Remoção de Vírus</li>
+<li>⚙️ Formatação e Otimização</li>
+<li>🔌 Troca de Telas e Componentes</li>
+</ul>
+</section>
+<section id="porque" class="porque">
+<h2>Por que escolher a GPS InfoCell?</h2>
+<ul>
+<li>✔️ Atendimento rápido e eficiente</li>
+<li>✔️ Técnicos qualificados</li>
+<li>✔️ Peças de alta qualidade</li>
+<li>✔️ Transparência em todos os serviços</li>
+<li>✔️ Suporte especializado</li>
+</ul>
+</section>
+<section id="depoimentos" class="depoimentos">
+<h2>Depoimentos de Clientes</h2>
+<p>“Serviço excelente! Meu celular ficou novo!” – Cliente A</p>
+<p>“Atendimento rápido e confiável.” – Cliente B</p>
+<p>“Recomendo demais! Empresa séria.” – Cliente C</p>
+</section>
+<section id="contato" class="contato">
+<h2>Contato</h2>
+<p>📍 Fortaleza - CE</p>
+<p>📞 <strong>(85) 99904-5102</strong></p>
+<p>📱 WhatsApp disponível</p>
+</section>
+</main>
+
+    <section id="servicos" class="services">
+      <div class="service-item">
+        <h3>Manutenção de Hardware</h3>
+        <p>Troca de tela, teclado, fonte, placa-mãe e limpeza completa.</p>
+      </div>
+      <div class="service-item">
+        <h3>Reparo de Bateria</h3>
+        <p>Troca de baterias com garantia e calibração de energia.</p>
+      </div>
+      <div class="service-item">
+        <h3>Recuperação de Dados</h3>
+        <p>Recuperação de arquivos, clonagem e backup seguro.</p>
+      </div>
+      <div class="service-item">
+        <h3>Troca de Tela</h3>
+        <p>Peças originais e instalação especializada.</p>
+      </div>
+      <div class="service-item">
+        <h3>Atualização e Otimização</h3>
+        <p>Instalação de SO, remoção de vírus e otimização de performance.</p>
+      </div>
+      <div class="service-item">
+        <h3>Assistência Remota</h3>
+        <p>Suporte rápido para configuração e solução de problemas.</p>
+      </div>
+    </section>
+
+    <section class="gallery">
+      <div class="thumb"></div>
+      <div class="thumb"></div>
+      <div class="thumb"></div>
+      <div class="thumb"></div>
+    </section>
+
+    <footer id="contato">
+      <div>
+        <strong>GPS InfoCELL</strong>
+        <div style="color:#bfc3c3;font-size:13px">Rua Exemplo, 123 — Fortaleza, CE</div>
+        <div style="margin-top:8px">E-mail: contato@gpsinfocell.com</div>
+      </div>
+      <div style="text-align:right">
+        <div style="font-weight:800">Fale conosco</div>
+        <div style="margin-top:6px">WhatsApp: <a href="https://wa.me/5585XXXXXXXX" style="color:var(--neon);text-decoration:none">(85) 9 XXXX-XXXX</a></div>
+        <div style="margin-top:8px;color:#bfc3c3;font-size:12px">© <span id="year"></span> GPS InfoCELL</div>
+      </div>
+    </footer>
+
+    <div class="neon-ring" title="WhatsApp">
+      <a href="https://wa.me/5585XXXXXXXX" style="text-decoration:none;color:var(--neon);font-weight:800">WhatsApp</a>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function handleSubmit(e){
+      e.preventDefault();
+      const nome = document.getElementById('nome').value;
+      const phone = document.getElementById('phone').value;
+      const tipo = document.getElementById('tipo').value;
+      const desc = document.getElementById('desc').value;
+
+      // Simulação: abrir WhatsApp com texto pronto
+      const text = encodeURIComponent(`Olá, meu nome é ${nome}. Tenho um ${tipo}. Problema: ${desc}. Contato: ${phone}`);
+      window.open(`https://wa.me/5585XXXXXXXX?text=${text}`, '_blank');
+      return false;
+    }
+
+    // Pequenas interações visuais
+    (function addGlow(){
+      const els = document.querySelectorAll('.feature, .service-item, .thumb');
+      els.forEach((el,i)=>{el.style.transition='transform .28s ease, box-shadow .28s ease';el.addEventListener('mouseenter',()=>{el.style.transform='translateY(-6px)';el.style.boxShadow='0 18px 40px rgba(0,0,0,0.6)'});el.addEventListener('mouseleave',()=>{el.style.transform='none';el.style.boxShadow='none'});});
+    })();
+  </script>
 </body>
 </html>
